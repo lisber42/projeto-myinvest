@@ -22,7 +22,7 @@ public class Investimento {
 	
 	private Integer quantidadeCotas;
 	
-	private LocalDate DataCompra;
+	private LocalDate dataCompra;
 	
 	@ManyToOne
 	@JoinColumn(name="fk_codigo_categoria")
@@ -61,14 +61,12 @@ public class Investimento {
 	}
 
 	public LocalDate getDataCompra() {
-		return DataCompra;
+		return dataCompra;
 	}
 
 	public void setDataCompra(LocalDate dataCompra) {
-		DataCompra = dataCompra;
+		this.dataCompra = dataCompra;
 	}
-	
-	
 
 	public Categoria getCategoria() {
 		return categoria;
@@ -82,10 +80,10 @@ public class Investimento {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((DataCompra == null) ? 0 : DataCompra.hashCode());
 		result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		result = prime * result + ((codigoAtivo == null) ? 0 : codigoAtivo.hashCode());
+		result = prime * result + ((dataCompra == null) ? 0 : dataCompra.hashCode());
 		result = prime * result + ((quantidadeCotas == null) ? 0 : quantidadeCotas.hashCode());
 		result = prime * result + ((valorCota == null) ? 0 : valorCota.hashCode());
 		return result;
@@ -100,11 +98,6 @@ public class Investimento {
 		if (getClass() != obj.getClass())
 			return false;
 		Investimento other = (Investimento) obj;
-		if (DataCompra == null) {
-			if (other.DataCompra != null)
-				return false;
-		} else if (!DataCompra.equals(other.DataCompra))
-			return false;
 		if (categoria == null) {
 			if (other.categoria != null)
 				return false;
@@ -120,6 +113,11 @@ public class Investimento {
 				return false;
 		} else if (!codigoAtivo.equals(other.codigoAtivo))
 			return false;
+		if (dataCompra == null) {
+			if (other.dataCompra != null)
+				return false;
+		} else if (!dataCompra.equals(other.dataCompra))
+			return false;
 		if (quantidadeCotas == null) {
 			if (other.quantidadeCotas != null)
 				return false;
@@ -132,5 +130,9 @@ public class Investimento {
 			return false;
 		return true;
 	}
+	
+	
+
+	
 
 }

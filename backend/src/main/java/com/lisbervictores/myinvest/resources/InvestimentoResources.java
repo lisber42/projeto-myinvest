@@ -16,19 +16,19 @@ import com.lisbervictores.myinvest.repository.InvestimentoRepository;
 
 
 @RestController
-@RequestMapping("/investimento ")
+@RequestMapping("/investimentos ")
 public class InvestimentoResources {
 	
 	@Autowired
 	private InvestimentoRepository investimentoRepository;
 	
 	@GetMapping
-	public List<Investimento> listartodos(){
+	public List<Investimento> listarTodos(){
 		return investimentoRepository.findAll();
 		
 	}
 	
-	@GetMapping("/{codigo")
+	@GetMapping("/{codigo}")
 	public Investimento buscarPeloCodigo(@PathVariable Long codigo) {
 		return investimentoRepository.findById(codigo).orElse(null);
 	}
